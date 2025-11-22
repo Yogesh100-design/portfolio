@@ -3,10 +3,9 @@ import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 
 export default function Footer() {
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/yourusername' },
-    { icon: FiLinkedin, href: 'https://linkedin.com/in/yourusername' },
-    { icon: FiTwitter, href: 'https://twitter.com/yourusername' },
-    { icon: FiMail, href: 'mailto:your.email@example.com' },
+    { icon: FiGithub, href: 'https://github.com/Yogesh100-design/' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/yogesh-chavan-494196316/' },
+    { icon: FiMail, href: 'mailto:yogeshchavan1209@gmail.com' },
   ];
 
   return (
