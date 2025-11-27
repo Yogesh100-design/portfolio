@@ -5,7 +5,7 @@ import profileImage from '../../assets/images/edu.jpg';
 export default function Hero() {
   const yourName = "Yogesh Chavan";
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Full Stack Developer | UI/UX Enthusiast";
+  const fullText = "Full Stack Developer | Web Developer";
 
   useEffect(() => {
     let index = 0;
@@ -66,7 +66,7 @@ export default function Hero() {
             
             {/* Skill badges */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
-              {['React', 'Node.js', 'UI/UX', 'MongoDB', 'TypeScript'].map((skill, i) => (
+              {['React', 'Node.js',  'MongoDB', 'JavaScript'].map((skill, i) => (
                 <motion.span key={skill} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.1 + i * 0.07, type: "spring", stiffness: 300 }}
                   className="px-3 py-1 bg-primary-50 text-primary-600 text-sm font-medium rounded-full border border-primary-200 hover:bg-primary-100 transition-colors"
                   whileHover={{ scale: 1.05, y: -2 }}>
@@ -90,11 +90,7 @@ export default function Hero() {
                 <motion.span className="absolute inset-0 bg-white/20" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.4 }} />
               </motion.a>
               
-              <motion.a href="#contact" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 border-2 border-primary-500 text-primary-500 font-semibold rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300 shadow-lg flex items-center gap-2">
-                <motion.span initial={{ rotate: 0 }} whileHover={{ rotate: 15 }} transition={{ duration: 0.3 }}>💬</motion.span>
-                <span>Contact Me</span>
-              </motion.a>
+              
             </motion.div>
 
             {/* Stats bar */}

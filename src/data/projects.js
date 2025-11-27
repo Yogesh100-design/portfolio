@@ -5,7 +5,7 @@ export const projects = [
     description: "A digital learning platform featuring study materials, interactive UI, subjects, videos, and notes.",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/Yogesh100-design/EduMedia-Hub",
-    live: "https://studymedia-online.netlify.app/ ",
+    live: "https://edumedia-hub-2.onrender.com",
     image: "../assets/images/Edumedia.jpg"
   },
 
