@@ -19,29 +19,63 @@ const GridBackground = () => (
 );
 
 const AnimatedText = ({ text, className, delay = 0 }) => {
-  // Split text into words for stagger effect
   const words = text.split(" ");
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.04, delayChildren: delay }
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
-    <motion.div 
-      className={`overflow-hidden flex flex-wrap gap-x-3 gap-y-1 ${className}`}
+    <motion.div
+      variants={container}
       initial="hidden"
       animate="visible"
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: 0.1, delayChildren: delay } }
-      }}
+      className={`flex flex-wrap gap-x-[0.25em] ${className}`}
     >
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          variants={{
-            hidden: { y: "100%" },
-            visible: { y: 0, transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] } }
-          }}
-          className="inline-block"
-        >
-          {word}
-        </motion.span>
+      {words.map((word, index) => (
+        <span key={index} className="whitespace-nowrap">
+          {word.split("").map((character, charIndex) => (
+             <motion.span
+              key={charIndex}
+              variants={child}
+              className="inline-block cursor-pointer"
+              whileHover={{
+                 scale: 1.2,
+                 y: -5,
+                 color: "#059669", 
+                 rotate: Math.random() * 8 - 4,
+                 transition: { type: "spring", stiffness: 300 }
+              }}
+            >
+              {character}
+            </motion.span>
+          ))}
+        </span>
       ))}
     </motion.div>
   );
@@ -167,10 +201,16 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h2 className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-6 flex items-center gap-3">
+              <motion.h2 
+                className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-6 flex items-center gap-3 w-fit"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                whileHover={{ letterSpacing: "0.2em", transition: { duration: 0.3 } }}
+              >
                 <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
                 Software Engineer
-              </h2>
+              </motion.h2>
               
               <div className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
                 <AnimatedText text="Building solid," delay={0.1} />

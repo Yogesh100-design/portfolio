@@ -1,220 +1,147 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { FiGithub, FiLinkedin, FiMail, FiHeart, FiArrowUp } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiTerminal } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 
 export default function Footer() {
-  const socialLinks = [
-    { 
-      icon: FiGithub, 
-      href: 'https://github.com/Yogesh100-design/',
-      label: 'GitHub',
-      color: 'from-stone-800 to-stone-600'
-    },
-    { 
-      icon: FiLinkedin, 
-      href: 'https://www.linkedin.com/in/yogesh-chavan-494196316/',
-      label: 'LinkedIn',
-      color: 'from-primary-600 to-primary-500'
-    },
-    { 
-      icon: FiMail, 
-      href: 'mailto:yogeshchavan1209@gmail.com',
-      label: 'Email',
-      color: 'from-red-500 to-red-400'
-    },
-  ];
-  
-  const [emailCopied, setEmailCopied] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const year = new Date().getFullYear();
 
+  const socialLinks = [
+    { icon: FiGithub, href: 'https://github.com/Yogesh100-design/', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/yogesh-chavan-494196316/', label: 'LinkedIn' },
+    { icon: FiMail, href: 'mailto:yogeshchavan1209@gmail.com', label: 'Email' },
+  ];
+
+  const quickLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' }
+  ];
+
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 500);
-    };
+    const handleScroll = () => setShowScrollTop(window.scrollY > 500);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    e.currentTarget.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-  };
-  
-  const handleMouseLeave = (e) => {
-    e.currentTarget.style.transform = 'translate(0px, 0px)';
-  };
-
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText('yogeshchavan1209@gmail.com');
-    setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
-  };
-
   return (
-    <footer className="relative bg-stone-900 text-white py-16 md:py-24 overflow-hidden">
+    <footer className="bg-stone-950 text-stone-400 py-16 md:py-20 relative overflow-hidden border-t border-stone-900">
       
-      {/* Animated background blobs */}
-      <motion.div
-        className="absolute -top-20 -left-20 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -bottom-20 -right-20 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.1, 1], y: [0, -30, 0] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 5 }}
-      />
-      
-      {/* Floating tech symbols */}
-      <motion.div
-        className="absolute top-10 left-10 text-primary-400/10 text-8xl pointer-events-none"
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      >
-        {'</>'}
-      </motion.div>
-      <motion.div
-        className="absolute bottom-10 right-10 text-emerald-400/10 text-6xl pointer-events-none"
-        animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-      >
-        {'{}'}
-      </motion.div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        
-        <motion.div 
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: {
-              opacity: 1, y: 0, transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-            }
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16"
-        >
-          <motion.div className="md:col-span-1 text-center md:text-left">
-            <motion.h3
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-2xl md:text-3xl font-extrabold text-white mb-4"
-            >
-              Yogesh Chavan
-              <motion.span 
-                className="block h-0.5 bg-gradient-to-r from-primary-500 to-teal-600 mt-2 mx-auto md:mx-0"
-                initial={{ width: 0 }}
-                animate={{ width: '3rem' }}
-                transition={{ delay: 0.3 }}
-              />
-            </motion.h3>
-            <p className="text-gray-300/80 text-sm md:text-base mb-4 max-w-xs mx-auto md:mx-0">
-              Building digital experiences that blend innovation with precision.
-            </p>
-            
-            <motion.div 
-              className="inline-flex items-center gap-2 text-sm text-gray-400"
-              animate={{ opacity: [0.6, 1, 0.6] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <FiHeart className="text-red-400" /> Crafted with passion in India
-            </motion.div>
-          </motion.div>
-
-          {/* Connect Section */}
-          <motion.div className="md:col-span-2">
-            <h4 className="text-xl font-bold mb-2 text-center md:text-left">Let's Connect</h4>
-            <p className="text-gray-300/80 mb-6 text-center md:text-left">
-              Open to collaborations and exciting opportunities
-            </p>
-            
-            <div className="flex justify-center md:justify-start gap-4 md:gap-6">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <motion.div
-                    key={social.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + (index * 0.1) }}
-                  >
-                    <motion.a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={social.label === 'Email' ? handleEmailClick : null}
-                      whileHover={{ 
-                        scale: 1.15,
-                        y: -5,
-                        transition: { duration: 0.2, ease: "easeOut" }
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      onMouseMove={handleMouseMove}
-                      onMouseLeave={handleMouseLeave}
-                      className={`w-14 h-14 rounded-full flex items-center justify-center relative overflow-hidden shadow-lg
-                                bg-white/10 hover:bg-white/20 border border-white/20
-                                transition-all duration-300`}
-                      aria-label={social.label}
-                    >
-                      <motion.div
-                        className={`absolute inset-0 bg-gradient-to-r ${social.color} opacity-0`}
-                        whileHover={{ opacity: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                      />
-                      <Icon className="text-white text-xl relative z-10" />
-                    </motion.a>
-                  </motion.div>
-                );
-              })}
-            </div>
-            
-            <AnimatePresence>
-              {emailCopied && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="mt-4 text-center md:text-left text-sm text-emerald-400 font-medium"
-                >
-                  ✓ Email copied to clipboard!
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
-        >
-          <p className="text-gray-400 text-sm text-center md:text-left">
-            © {year} Yogesh Chavan. All rights reserved. | Made with <motion.span animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }}><FiHeart className="inline text-red-400" /></motion.span> and ☕
-          </p>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
           
-          <AnimatePresence>
-            {showScrollTop && (
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                whileHover={{ scale: 1.2, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all border border-white/20 z-50"
-              >
-                <FiArrowUp className="text-white text-lg" />
-              </motion.button>
-            )}
-          </AnimatePresence>
-        </motion.div>
+          {/* COLUMN 1: BRAND */}
+          <div className="md:col-span-5 space-y-6">
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-stone-100 mb-2 tracking-tight">Yogesh Chavan<span className="text-emerald-500">.</span></h3>
+              <p className="text-stone-500 leading-relaxed max-w-sm">
+                Software Engineer focused on building scalable, performant, and user-centric digital experiences.
+              </p>
+            </motion.div>
+
+            {/* Developer Status Badge */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-4 py-2 bg-stone-900/50 rounded-lg border border-stone-800 backdrop-blur-sm"
+            >
+               <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+               </span>
+               <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider leading-none mb-0.5">Current Status</span>
+                  <span className="text-xs font-mono font-bold text-emerald-400">Open to Work</span>
+               </div>
+            </motion.div>
+          </div>
+
+          {/* COLUMN 2: LINKS */}
+          <div className="md:col-span-3 md:pl-8">
+             <h4 className="text-stone-100 font-bold mb-6">Navigation</h4>
+             <ul className="space-y-4">
+               {quickLinks.map((link) => (
+                 <li key={link.name}>
+                   <a 
+                     href={link.href} 
+                     className="text-stone-500 hover:text-emerald-500 transition-colors text-sm font-medium flex items-center gap-2 group"
+                   >
+                     <span className="w-1.5 h-1.5 rounded-full bg-stone-800 group-hover:bg-emerald-500 transition-colors" />
+                     {link.name}
+                   </a>
+                 </li>
+               ))}
+             </ul>
+          </div>
+
+          {/* COLUMN 3: CONNECT */}
+          <div className="md:col-span-4">
+             <h4 className="text-stone-100 font-bold mb-6">Connect</h4>
+             <div className="flex gap-4 mb-8">
+               {socialLinks.map((social) => {
+                 const Icon = social.icon;
+                 return (
+                   <a
+                     key={social.label}
+                     href={social.href}
+                     target="_blank"
+                     rel="noreferrer"
+                     className="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center text-stone-400 hover:bg-emerald-600 hover:text-white transition-all duration-300 border border-stone-800 hover:border-emerald-600"
+                     aria-label={social.label}
+                   >
+                     <Icon size={18} />
+                   </a>
+                 );
+               })}
+             </div>
+
+             <div className="p-4 rounded-xl bg-stone-900 border border-stone-800">
+                <div className="flex items-center gap-3 mb-2 text-stone-200 font-mono text-sm">
+                   <FiTerminal className="text-emerald-500" />
+                   <span>Start a project?</span>
+                </div>
+                <p className="text-xs text-stone-500 mb-3">
+                   Let's discuss how we can help your business grow.
+                </p>
+                <a href="mailto:yogeshchavan1209@gmail.com" className="text-xs font-bold text-emerald-500 hover:text-emerald-400 flex items-center gap-1">
+                   run_init.sh <span className="animate-pulse">_</span>
+                </a>
+             </div>
+          </div>
+
+        </div>
+
+        <div className="border-t border-stone-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-stone-600">
+           <p className="flex items-center gap-2">
+              <span className="text-emerald-600">const</span> YEAR = {year};
+           </p>
+           <p>
+              // Designed & Built by <span className="text-stone-400">Yogesh Chavan</span>
+           </p>
+        </div>
+
       </div>
+
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 w-12 h-12 bg-emerald-600 text-white rounded-xl shadow-lg hover:bg-emerald-700 transition-colors flex items-center justify-center z-50 group"
+          >
+            <FiArrowUp className="group-hover:-translate-y-1 transition-transform" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }
