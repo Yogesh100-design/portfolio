@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yogeshchavan.dev/sitemap.xml
+Sitemap: https://yogesh-cvoa.onrender.com/sitemap.xml
