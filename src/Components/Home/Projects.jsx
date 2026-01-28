@@ -46,7 +46,7 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
     <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
       <motion.div 
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }} 
-        className="flex flex-col relative -top-[5%] md:-top-[5%] w-[90vw] md:w-[1000px] h-[70vh] md:h-[500px] rounded-3xl overflow-hidden border border-stone-200 shadow-2xl origin-top bg-white"
+        className="flex flex-col relative -top-[5%] md:-top-[5%] w-[90vw] md:w-[1000px] h-[70vh] md:h-[500px] rounded-3xl overflow-hidden border border-stone-200 shadow-2xl origin-top bg-white neon-border-card"
         onClick={() => setModal(project)}
       >
         <div className="flex flex-col md:flex-row h-full">

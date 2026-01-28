@@ -57,4 +57,51 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400;
   }
+
+  /* --- Neon Border Animation --- */
+  .neon-border-card {
+    position: relative;
+    /* Ensure z-index context if needed */
+    z-index: 1; 
+  }
+
+  .neon-border-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* Border thickness */
+    
+    /* Using a moving gradient instead of spinning angle for better compatibility */
+    background: linear-gradient(
+      60deg,
+      #10b981, /* emerald-500 */
+      transparent 20%,
+      transparent 80%,
+      #10b981
+    );
+    background-size: 200% 200%;
+    
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            
+    animation: neon-flow 2s linear infinite;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 50; /* Ensure it sits on top */
+    pointer-events: none;
+  }
+
+  .neon-border-card:hover::after {
+    opacity: 1;
+  }
+
+  @keyframes neon-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }

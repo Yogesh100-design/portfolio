@@ -112,7 +112,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-12"
           >
-             <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 relative overflow-hidden group">
+             <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 relative overflow-hidden group neon-border-card">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
                 
                 <h3 className="text-2xl font-bold text-stone-900 mb-6 relative z-10">Contact Details</h3>
@@ -140,7 +140,7 @@ export default function Contact() {
                 </div>
              </div>
 
-             <div className="bg-stone-900 p-8 rounded-3xl text-white relative overflow-hidden">
+             <div className="bg-stone-900 p-8 rounded-3xl text-white relative overflow-hidden neon-border-card">
                 <div className="relative z-10">
                    <h3 className="text-2xl font-bold mb-4">Availability Status</h3>
                    <div className="flex items-center gap-3">
@@ -167,7 +167,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100"
+            className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100 neon-border-card"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
                <div className="grid md:grid-cols-2 gap-6">

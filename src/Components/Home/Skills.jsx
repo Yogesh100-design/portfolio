@@ -34,7 +34,7 @@ const SkillCard = ({ skill, index }) => {
       transition={{ duration: 0.3 }}
       className="relative group"
     >
-      <div className="h-full p-4 bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden z-0">
+      <div className="h-full p-4 bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden z-0 neon-border-card">
         <div className="relative z-10 flex items-center gap-4">
            {/* Icon Box */}
            <div className="w-12 h-12 rounded-lg bg-stone-50 text-stone-600 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">

@@ -66,7 +66,7 @@ export default function Header() {
               setIsMenuOpen(false);
             }}
           >
-            <motion.h1 className="text-3xl font-bold font-display tracking-tight flex gap-0.5 overflow-hidden">
+            <motion.div className="text-3xl font-bold font-display tracking-tight flex gap-0.5 overflow-hidden">
                {logoText.map((letter, i) => (
                 <motion.span
                   key={i}
@@ -78,7 +78,7 @@ export default function Header() {
                     y: -5,
                     color: "#059669", // emerald-600
                     transition: { duration: 0.2 }
-                  }}
+                    }}
                 >
                   {letter}
                 </motion.span>
@@ -89,7 +89,7 @@ export default function Header() {
                  animate={{ scale: 1 }}
                  transition={{ delay: 0.5, type: 'spring' }}
                >.</motion.span>
-            </motion.h1>
+            </motion.div>
           </a>
 
           {/* Desktop Navigation */}

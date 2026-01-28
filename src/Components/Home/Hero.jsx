@@ -146,7 +146,7 @@ const GravityImage = () => {
            {/* The Image */}
            <motion.img 
              src={profileImg} 
-             alt="Profile" 
+             alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 
              className="w-full h-full object-cover opacity-90 transition-transform duration-500 scale-105"
              style={{
                // Parallax effect for the image inside the card
@@ -212,7 +212,7 @@ export default function Hero() {
                 Software Engineer
               </motion.h2>
               
-              <div className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
                 <AnimatedText text="Building solid," delay={0.1} />
                 <AnimatedText text="scalable digital" delay={0.3} />
                 <div className="overflow-hidden">
@@ -225,7 +225,7 @@ export default function Hero() {
                      solutions.
                    </motion.div>
                 </div>
-              </div>
+              </h1>
 
               <motion.p 
                 initial={{ opacity: 0 }}
@@ -244,7 +244,7 @@ export default function Hero() {
               >
                 <a 
                   href="#projects" 
-                  className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-stone-900 px-8 font-medium text-white transition-all duration-300 hover:bg-stone-800 hover:w-40 w-36"
+                  className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-stone-900 px-8 font-medium text-white transition-all duration-300 hover:bg-stone-800 hover:w-40 w-36 neon-border-card"
                 >
                   <div className="inline-flex whitespace-nowrap opacity-100 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-0">
                     My Work

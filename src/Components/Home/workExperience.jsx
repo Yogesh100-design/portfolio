@@ -53,7 +53,7 @@ const TimelineCard = ({ exp, index }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-            className={`w-full bg-white p-6 md:p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-xl transition-shadow duration-300 relative z-10
+            className={`w-full bg-white p-6 md:p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-xl transition-shadow duration-300 relative z-10 neon-border-card
                 before:absolute before:content-[''] before:w-4 before:h-4 before:bg-white before:border-t before:border-r before:border-stone-100 before:rotate-45 
                 ${isOdd ? 'before:-left-2 md:before:-left-2' : 'before:-left-2 md:before:-right-2 md:before:border-t md:before:border-r'}
                 before:top-8 md:before:border-stone-100
@@ -173,7 +173,7 @@ export default function Experience() {
             viewport={{ once: true }}
             className="text-center mt-12"
         >
-            <a href="https://drive.google.com/file/d/1XO7qa2cYJIrIpVlF9ecfk6KAMlfuxy0G/view" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20">
+            <a href="https://drive.google.com/file/d/1XO7qa2cYJIrIpVlF9ecfk6KAMlfuxy0G/view" target="_blank" className="inline-flex items-center gap-2 group px-6 py-3 bg-stone-900 text-white rounded-lg font-bold hover:bg-stone-800 transition-all shadow-lg hover:shadow-emerald-500/20 neon-border-card">
                 <span>Resume / CV</span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" size={14} />
             </a>
