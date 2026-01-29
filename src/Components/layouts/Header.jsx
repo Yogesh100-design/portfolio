@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { m as motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 
