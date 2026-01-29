@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { m as motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { FaBuilding, FaCheck, FaArrowRight, FaLaptopCode, FaTrophy } from 'react-icons/fa';
 

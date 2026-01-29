@@ -145,7 +145,7 @@ const GravityImage = () => {
         <div className="relative w-full h-full transform-style-3d bg-stone-900">
            {/* The Image */}
            <motion.img 
-             src={profileImg} 
+             src="/edu.jpg" 
              width="384"
              height="480"
              alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 

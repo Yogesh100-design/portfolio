@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { FiSend, FiMail, FiMapPin, FiCheck, FiLoader, FiAlertCircle } from 'react-icons/fi';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';

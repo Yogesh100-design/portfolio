@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m as motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaArrowRight } from 'react-icons/fa';
 import { projects } from '../../data/projects'; 
