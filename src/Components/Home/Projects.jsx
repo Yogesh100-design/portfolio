@@ -66,10 +66,20 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
                </div>
                
                <div className="flex items-center gap-4 mt-6 md:mt-0">
-                  <button className="flex items-center gap-2 text-stone-900 font-bold border-b-2 border-stone-900 pb-1 hover:text-emerald-600 hover:border-emerald-600 transition-colors">
+                  <button 
+                     className="flex items-center gap-2 text-stone-900 font-bold border-b-2 border-stone-900 pb-1 hover:text-emerald-600 hover:border-emerald-600 transition-colors"
+                     aria-label={`View case study for ${project.title}`}
+                  >
                      View Case Study <FaArrowRight size={12} />
                   </button>
-                  <a href={project.github} target="_blank" rel="noreferrer" className="p-2 bg-stone-100 rounded-full hover:bg-stone-200 transition-colors" onClick={(e) => e.stopPropagation()}>
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="p-2 bg-stone-100 rounded-full hover:bg-stone-200 transition-colors" 
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label="View source code on GitHub"
+                  >
                     <FaGithub size={18} />
                   </a>
                </div>
@@ -80,7 +90,10 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
               <motion.div className="w-full h-full" style={{ scale: imageScale }}>
                  <img 
                     src={getProjectImage(project)} 
-                    alt="Project" 
+                    alt={`Screenshot of ${project.title} project`}
+                    loading="lazy"
+                    width="800"
+                    height="600"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                  />
               </motion.div>
@@ -110,7 +123,7 @@ export default function Projects() {
   const len = projects.length;
 
   return (
-    <div ref={container} className="relative bg-stone-50">
+    <div ref={container} className="relative bg-stone-50" id="projects">
       
       {/* Intro Section - Standard Scroll */}
       <section className="py-24 px-6 container mx-auto text-center">
@@ -160,6 +173,9 @@ export default function Projects() {
           <div 
             className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
           >
             <motion.div 
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -172,6 +188,7 @@ export default function Projects() {
                <button 
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 z-50 bg-white/50 p-2 rounded-full md:hidden"
+                aria-label="Close modal"
                >
                  <FaTimes />
                </button>
@@ -180,7 +197,7 @@ export default function Projects() {
                <div className="w-full md:w-[55%] h-64 md:h-full relative bg-stone-900 group">
                   <img 
                     src={getProjectImage(selectedProject)} 
-                    alt={selectedProject.title} 
+                    alt={`Detail view of ${selectedProject.title}`}
                     className="w-full h-full object-contain md:object-cover opacity-90"
                   />
                </div>
@@ -189,7 +206,7 @@ export default function Projects() {
                <div className="w-full md:w-[45%] p-8 md:p-10 flex flex-col h-full bg-white overflow-y-auto">
                  <div className="flex justify-between items-start mb-6">
                     <div>
-                         <h3 className="text-3xl font-bold text-stone-900 mb-2">{selectedProject.title}</h3>
+                         <h3 id="modal-title" className="text-3xl font-bold text-stone-900 mb-2">{selectedProject.title}</h3>
                          <div className="flex gap-2">
                            <span className="px-2 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase rounded tracking-wide">
                              Key Project
@@ -199,6 +216,7 @@ export default function Projects() {
                     <button 
                         onClick={() => setSelectedProject(null)}
                         className="hidden md:block text-stone-400 hover:text-stone-900 transition-colors"
+                        aria-label="Close modal"
                     >
                         <FaTimes size={24} />
                     </button>

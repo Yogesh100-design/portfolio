@@ -137,6 +137,7 @@ export default function Footer() {
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="fixed bottom-8 right-8 w-12 h-12 bg-emerald-600 text-white rounded-xl shadow-lg hover:bg-emerald-700 transition-colors flex items-center justify-center z-50 group"
+            aria-label="Scroll to top"
           >
             <FiArrowUp className="group-hover:-translate-y-1 transition-transform" />
           </motion.button>

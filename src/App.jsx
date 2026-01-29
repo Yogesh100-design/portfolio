@@ -1,24 +1,39 @@
+import { Suspense, lazy } from 'react';
 import Header from './Components/layouts/Header';
 import Hero from './Components/Home/Hero';
-import Projects from './Components/Home/Projects';
-import Contact from './Components/Home/Contact';
-import Footer from './Components/layouts/Footer';
+
+// Lazy load components to improve performance
+const Projects = lazy(() => import('./Components/Home/Projects'));
+const Contact = lazy(() => import('./Components/Home/Contact'));
+const Footer = lazy(() => import('./Components/layouts/Footer'));
+const Skills = lazy(() => import('./Components/Home/Skills'));
+const Experience = lazy(() => import('./Components/Home/workExperience'));
+
 import project from './data/projects';
-import Skills from './Components/Home/Skills';
-import Experience from './Components/Home/workExperience';
+
+// Simple fallback loader
+const PageLoader = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-stone-50">
       <Header />
       <main>
         <Hero />
-        <Skills/>
-        <Projects  project={project} />
-        <Experience/>
-        <Contact />
+        <Suspense fallback={<PageLoader />}>
+          <Skills/>
+          <Projects project={project} />
+          <Experience/>
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="h-20 bg-stone-950"></div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

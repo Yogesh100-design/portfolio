@@ -172,53 +172,57 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
                <div className="grid md:grid-cols-2 gap-6">
                  <div className="relative group">
-                   <label className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Name</label>
+                   <label htmlFor="name" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Name</label>
                    <input
+                     id="name"
                      type="text"
                      name="name"
                      value={formData.name}
                      onChange={handleChange}
                      disabled={status ===('submitting' || 'success')}
-                     className="w-full bg-stone-50 border-2 border-transparent w-full px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                     className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
                      placeholder="John Doe"
                    />
                  </div>
                  <div className="relative group">
-                   <label className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Email</label>
+                   <label htmlFor="email" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Email</label>
                    <input
+                     id="email"
                      type="email"
                      name="email"
                      value={formData.email}
                      onChange={handleChange}
                      disabled={status ===('submitting' || 'success')}
-                     className="w-full bg-stone-50 border-2 border-transparent w-full px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                     className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
                      placeholder="john@example.com"
                    />
                  </div>
                </div>
                
                <div className="relative group">
-                 <label className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Subject</label>
+                 <label htmlFor="subject" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Subject</label>
                  <input
+                   id="subject"
                    type="text"
                    name="subject"
                    value={formData.subject}
                    onChange={handleChange}
                    disabled={status ===('submitting' || 'success')}
-                   className="w-full bg-stone-50 border-2 border-transparent w-full px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                   className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
                    placeholder="Project Inquiry"
                  />
                </div>
                
                <div className="relative group">
-                 <label className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Message</label>
+                 <label htmlFor="message" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Message</label>
                  <textarea
+                   id="message"
                    name="message"
                    rows="4"
                    value={formData.message}
                    onChange={handleChange}
                    disabled={status ===('submitting' || 'success')}
-                   className="w-full bg-stone-50 border-2 border-transparent w-full px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all resize-none font-medium"
+                   className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all resize-none font-medium"
                    placeholder="Tell me about your project..."
                  />
                </div>

@@ -201,7 +201,24 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <motion.h2 
+              {/* SEO ONLY H1 */}
+              <h1 
+                style={{ 
+                  position: 'absolute', 
+                  width: '1px', 
+                  height: '1px', 
+                  padding: '0', 
+                  margin: '-1px', 
+                  overflow: 'hidden', 
+                  clip: 'rect(0, 0, 0, 0)', 
+                  whiteSpace: 'nowrap', 
+                  borderWidth: '0' 
+                }}
+              >
+                Yogesh Chavan - Software Engineer & Full Stack Developer
+              </h1>
+
+              <motion.div 
                 className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-6 flex items-center gap-3 w-fit"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -210,9 +227,9 @@ export default function Hero() {
               >
                 <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
                 Software Engineer
-              </motion.h2>
+              </motion.div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
                 <AnimatedText text="Building solid," delay={0.1} />
                 <AnimatedText text="scalable digital" delay={0.3} />
                 <div className="overflow-hidden">
@@ -225,7 +242,7 @@ export default function Hero() {
                      solutions.
                    </motion.div>
                 </div>
-              </h1>
+              </h2>
 
               <motion.p 
                 initial={{ opacity: 0 }}

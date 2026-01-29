@@ -132,6 +132,7 @@ export default function Header() {
             className="md:hidden relative z-50 p-2 text-stone-900 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.9 }}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
              {isMenuOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
           </motion.button>
